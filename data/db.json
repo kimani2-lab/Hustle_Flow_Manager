@@ -1,0 +1,47 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "Allan kimani",
+            "email": "kimania271@gmail.com",
+            "role": "Driver"
+        },
+        {
+            "id": 2,
+            "name": "John Kamau",
+            "email": "kamauj210@gmail.com",
+            "role": "pilot"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "title": "Kahawa Renovation",
+            "description": "Control a bus station as main Driver",
+            "manager_id": 1,
+            "tasks": [
+                {
+                    "id": 1,
+                    "title": "Bursar",
+                    "pay_amount": "2000",
+                    "status": "Pending",
+                    "contributors": []
+                },
+                {
+                    "id": 2,
+                    "title": "Caretaker",
+                    "pay_amount": "1000",
+                    "status": "Pending",
+                    "contributors": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Kimana Farm",
+            "description": "Managing on crops and other workers",
+            "manager_id": 1,
+            "tasks": []
+        }
+    ]
+}
