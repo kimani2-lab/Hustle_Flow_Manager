@@ -62,3 +62,7 @@ Data is stored in `data/db.json`. The storage layer initializes the file if it i
 - `storage.py` — JSON persistence helper functions
 - `models/` — domain models for `User`, `Project`, and `Task`
 - `tests/` — unit tests
+## License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+
