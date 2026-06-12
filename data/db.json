@@ -11,6 +11,18 @@
             "name": "John Kamau",
             "email": "kamauj210@gmail.com",
             "role": "pilot"
+        },
+        {
+            "id": 3,
+            "name": "Joseph Kamau",
+            "email": "Josephk217@gmail.com",
+            "role": "Fundi"
+        },
+        {
+            "id": 7,
+            "name": "Goliath Njoroge",
+            "email": "goliathn22@gmail.com",
+            "role": "Contracter"
         }
     ],
     "projects": [
@@ -24,8 +36,10 @@
                     "id": 1,
                     "title": "Bursar",
                     "pay_amount": "2000",
-                    "status": "Pending",
-                    "contributors": []
+                    "status": "In Progress",
+                    "contributors": [
+                        3
+                    ]
                 },
                 {
                     "id": 2,
@@ -41,6 +55,28 @@
             "title": "Kimana Farm",
             "description": "Managing on crops and other workers",
             "manager_id": 1,
+            "tasks": []
+        },
+        {
+            "id": 3,
+            "title": "Kilimani construction",
+            "description": "To structure the building and manage workers",
+            "manager_id": 1,
+            "tasks": [
+                {
+                    "id": 5,
+                    "title": "Driver",
+                    "pay_amount": "1500",
+                    "status": "Completed",
+                    "contributors": []
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "title": "Serena Renovation",
+            "description": "Decorating Serena hotel",
+            "manager_id": 7,
             "tasks": []
         }
     ]

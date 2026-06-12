@@ -1,58 +1,64 @@
 # HustleFlowManager
 
-HustleFlowManager is a simple command-line application for managing construction and service contract projects, users, and daily task assignments.
+HustleFlowManager is a Python command-line application for managing users, projects, and tasks in a small team.
 
 ## Features
 
 - Register users as `Client` or `Fundi`
-- Create contract projects and assign a manager
-- Add daily tasks (`Vibarua`) to projects
-- Assign Fundis to tasks and update task status
-- View a live dashboard of users, projects, and task assignments
-
-## Project Structure
-
-- `main.py` - CLI application entry point and workflow logic
-- `models/` - Domain models used by the app
-  - `models/user.py` - `User` model
-  - `models/project.py` - `Project` model
-  - `models/task.py` - `Task` model
-  - `models/__init__.py` - Exports models for easy import
-- `data/db.json` - JSON file used for persistent storage
-- `requirements.txt` - dependencies (currently optional)
+- Create projects and associate them with a manager
+- Add tasks to projects and assign contributors
+- Mark tasks as complete
+- Search projects by manager
+- Persist data locally in `data/db.json`
+- Supports both an interactive menu and command-line commands
 
 ## Installation
 
-1. Ensure you have Python 3 installed.
-2. (Optional) Install `tabulate` for nicer tables:
+Recommended: create a virtual environment and install dependencies locally.
 
 ```bash
-pip install tabulate
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ## Usage
 
-Run the application from the project root:
+Run the app interactively:
 
 ```bash
-python3 main.py
+.venv/bin/python main.py
 ```
 
-Choose from the menu to:
+Or use the CLI directly:
 
-1. Register a new user
-2. Create a new project
-3. Add a task to a project
-4. Assign a Fundi to a task
-5. View the live dashboard
-6. Exit
+```bash
+.venv/bin/python main.py dashboard
+.venv/bin/python main.py list-users
+.venv/bin/python main.py add-user --name "Alice" --email alice@example.com --role Client
+.venv/bin/python main.py add-project --manager-id 1 --title "Build Office" --description "Office renovation"
+.venv/bin/python main.py add-task --project-id 1 --title "Install wiring" --pay "5000"
+.venv/bin/python main.py assign-task --task-id 1 --fundi-id 2
+.venv/bin/python main.py complete-task --task-id 1
+.venv/bin/python main.py search-projects --user-id 1
+```
+
+## Testing
+
+Run tests with pytest:
+
+```bash
+.venv/bin/python -m pytest -q
+```
 
 ## Data Persistence
 
-The app stores data in `data/db.json`. If the file does not exist or is empty, it is initialized automatically.
+Data is stored in `data/db.json`. The storage layer initializes the file if it is missing or empty.
 
-## Notes
+## Files
 
-- `models/__init__.py` exports the `User`, `Project`, and `Task` classes so `main.py` can import them cleanly.
-- User roles are expected to be `Client` or `Fundi`.
-- Task assignment is recorded by storing Fundi IDs in the task `contributors` list.
+- `main.py` — application entrypoint
+- `cli.py` — user and project command logic plus interactive menu
+- `storage.py` — JSON persistence helper functions
+- `models/` — domain models for `User`, `Project`, and `Task`
+- `tests/` — unit tests
